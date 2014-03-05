@@ -1,42 +1,67 @@
 <p>
-    You are given a text and a string with key words (or parts of words), separated by spaces. You need to find all key words,
-    ignoring upper or lower cases and put these words into "<span></span>" wrappers for highlighting.
-    All letters cases should be kept.
-</p>
-
-<p style="text-align: center;">
-    <img class="for_info_only" title="example" src="{{MEDIA}}example.png" alt="example" width="392px"/>
-    <img class="for_editor_only" title="example" src="{{MEDIA}}example.png" alt="example" width="380px"/>
+    Sophie has found a stash books and she wants to find information about the ancients who lived on the islands.
+    Unfortunately, she does not have a text search module and needs some help.
+    Let's write a program to help her search for keywords on the pages of a book.
 </p>
 
 <p>
-    <strong>Input: </strong> Two arguments. Both are strings
+    You are given some plain text (without tags) and a string with keywords (or parts of words, or letters,) separated by spaces.
+    You will need to find all the keywords and put these words into "<strong>&lt;span&gt;&lt;/span&gt;</strong>" wrappers to highlight them for Sophie.
+    You can ignore upper or lower cases for the key words, but the original letter cases in the text should remain.
+    Keywords are unique and do not contain or intersect with each other. There are no words like "hello or" or "world wor".
 </p>
 
 <p>
-    <strong>Output: </strong> String with replaced key words. 
+    For the cases when keywords contain or intersect each other you should highlight the bigger part without nested span tags.
+    Let's look it with example.<br>
+    The text <em>"Hello World! Or LOL"</em> and keywords <em>"hell world or lo"</em>.<br>
+    The <em>"World"</em> contains two keywords thus we remain only bigger part <em>"&lt;span&gt;World&lt;/span&gt;"</em>.<br>
+    <em>"Hello"</em> contains two intersected words <em>"hell"</em> and <em>"lo"</em> and we choice the bigger part again <em>"&lt;span&gt;Hello&lt;/span&gt;"</em>.<br>
+    Be careful, <em>"&lt;span&gt;Hel&lt;span&gt;lo&lt;/span&gt;&lt;/span&gt;"</em> is wrong because it contains the nested tags.
 </p>
 
+<p>
+    <strong>Input: </strong> Two arguments. A text and key words as strings.
+</p>
 
+<p>
+    <strong>Output: </strong> The text with wrapped key words.
+</p>
 
 <p>
     <strong>Example:</strong>
 </p>
 <div class="for_info_only">
     <pre class="brush: python">
-assert(checkio("This is only a text example for task example.", "example") == 
-        "This is only a text <span>example</span> for task <span>example</span>."), "Simple test"
+checkio("This is only a text example for task example.", "example") ==
+        "This is only a text <span>example</span> for task <span>example</span>."
 
-assert(checkio("Python is a widely used high-level programming language.", "pyThoN") ==
-        "<span>Python</span> is a widely used high-level programming language."), "Ignore letters cases"
+checkio("Python is a widely used high-level programming language.", "pyThoN") ==
+        "<span>Python</span> is a widely used high-level programming language.")
 
-assert(checkio("It is experiment for control groups with similar distributions.""", "is im") ==
-        "It <span>is</span> exper<span>im</span>ent for control groups with s<span>im</span>ilar d<span>is</span>tributions."),
-        "Several subwords"
+checkio("It is experiment for control groups with similar distributions.", "is im") ==
+        "It <span>is</span> exper<span>im</span>ent for control groups with s<span>im</span>ilar d<span>is</span>tributions.")
+
+checkio("The National Aeronautics and Space Administration (NASA).", "nasa  THE") ==
+        "<span>The</span> National Aeronautics and Space Administration (<span>NASA</span>).")
+
+checkio("Did you find anything?", "word space tree") ==
+        "Did you find anything?")
+checkio("Hello World! Or LOL", "hell world or lo") ==
+        "<span>Hello</span> <span>World</span>! <span>Or</span> <span>LO</span>L"
     </pre>
 </div>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    <i>Searching machines.</i>
+    You see this task every day when use your browser or work with documents.
+    Every time when you search something on the page and want to see the found fragments as highlighted parts,
+    you encounter the concept seen in this task.
+    This problem can be more complex if you use it for the languages where you need to write "lowercase" rules.
+</p>
+
+<p>
+    <strong>Precondition: </strong> Key words are unique, they don't contain or intersect each other.<br>
+    0 < |text| < 5000<br>
+    0 < |the number of key words| < 30
 </p>
