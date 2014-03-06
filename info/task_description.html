@@ -12,12 +12,12 @@
 </p>
 
 <p>
-    For the cases when keywords contain or intersect each other you should highlight the bigger part without nested span tags.
+    For the cases when keywords contain or intersect each other you should highlight the larger word without nested span tags.
     Let's look it with example.<br>
     The text <em>"Hello World! Or LOL"</em> and keywords <em>"hell world or lo"</em>.<br>
-    The <em>"World"</em> contains two keywords thus we remain only bigger part <em>"&lt;span&gt;World&lt;/span&gt;"</em>.<br>
-    <em>"Hello"</em> contains two intersected words <em>"hell"</em> and <em>"lo"</em> and we choice the bigger part again <em>"&lt;span&gt;Hello&lt;/span&gt;"</em>.<br>
-    Be careful, <em>"&lt;span&gt;Hel&lt;span&gt;lo&lt;/span&gt;&lt;/span&gt;"</em> is wrong because it contains the nested tags.
+    The <em>"World"</em> contains two keywords thus we tag only larger part <em>"&lt;span&gt;World&lt;/span&gt;"</em>.<br>
+    <em>"Hello"</em> contains two intersected words <em>"hell"</em> and <em>"lo"</em> and we tag the larger part again <em>"&lt;span&gt;Hello&lt;/span&gt;"</em>.<br>
+    Be careful, the result like <em>"&lt;span&gt;Hel&lt;span&gt;lo&lt;/span&gt;&lt;/span&gt;"</em> is considered wrong because it contains nested tags.
 </p>
 
 <p>
