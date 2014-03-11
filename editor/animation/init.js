@@ -43,7 +43,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             var checkioInputStr = JSON.stringify(checkioInput[0]) + ", " + JSON.stringify(checkioInput[1]);
 
             if (data.error) {
-                $content.find('.call').html('Fail: checkio(' + JSON.stringify(checkioInput) + ')');
+                $content.find('.call').html('Fail: checkio(' + checkioInputStr + ')');
                 $content.find('.output').html(data.error.replace(/\n/g, ","));
 
                 $content.find('.output').addClass('error');
