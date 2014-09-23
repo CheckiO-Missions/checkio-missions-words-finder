@@ -27,10 +27,11 @@
     <strong>Output: </strong> The text with wrapped key words.
 </p>
 
+<div class="for_info_only">
 <p>
     <strong>Example:</strong>
 </p>
-<div class="for_info_only">
+
     <pre class="brush: python">
 checkio("This is only a text example for task example.", "example") ==
         "This is only a text <span>example</span> for task <span>example</span>."
@@ -61,6 +62,6 @@ checkio("Hello World! Or LOL", "hell world or lo") ==
 
 <p>
     <strong>Precondition: </strong><br>
-    0 < |text| < 5000<br>
-    0 < |the number of key words| < 30
+    0 &lt; len(text) &lt; 5000<br>
+    0 &lt; len(the_number_of_key_words) &lt; 30
 </p>
