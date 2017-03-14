@@ -91,6 +91,10 @@ TESTS = {
             "input": ["a  b", "b a"],
             "answer": "<span>a</span>  <span>b</span>"
         },
+        {
+            "input": ["abcabc", "abc"],
+            "answer": "<span>abc</span><span>abc</span>"
+        }
 
 
     ],
