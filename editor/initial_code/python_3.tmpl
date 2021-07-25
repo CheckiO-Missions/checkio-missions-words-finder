@@ -1,0 +1,23 @@
+{% comment %}New initial code template{% endcomment %}
+{% block env %}{% endblock env %}
+
+{% block start %}
+def checkio(text: str, words: str) -> str:
+    # your code here
+    return ''
+{% endblock start %}
+
+{% block example %}
+print('Example:')
+print(checkio("This is only a text example for task example.", "example"))
+{% endblock %}
+
+{% block tests %}
+{% for t in tests %}
+assert {% block call %}checkio({{t.input.0|p}}, {{t.input.1|p}})
+{% endblock %} == {% block result %}{{t.answer|p}}{% endblock %}{% endfor %}
+{% endblock %}
+
+{% block final %}
+print("The mission is done! Click 'Check' to earn cool rewards!")
+{% endblock final %}
